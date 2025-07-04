@@ -8,15 +8,12 @@ ft_write:
 	mov rax, 1 ; set the syscall number
 	syscall
 	cmp rax, 0
-	jge .success ; return_value >= 0
-.fail:
+	jge .done ; return_value >= 0
 	mov rbx, rax ; rbx is preserved
 	neg rbx
 	call __errno_location wrt ..plt ; PIE-supporting
 	mov [rax], rbx ; set errno
 	mov rax, -1
 	jmp .done
-.success:
-	mov rax, 0
 .done:
 	ret
