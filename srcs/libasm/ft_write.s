@@ -1,13 +1,11 @@
-; ssize_t ft_write(int filedes, const void* buf, size_t nbyte) {
-; 	syscall(SYS_write, filedes, buf, nbyte);
-; }
+; ssize_t write(int filedes, const void* buf, size_t nbyte); // syscall number = 1
 
 extern __errno_location ; external function from standard c library
 
 section .text
 global ft_write
 ft_write:
-	mov rax, 1
+	mov rax, 1 ; set the syscall number
 	syscall
 	cmp rax, 0
 	jge .success ; return_value >= 0
