@@ -14,6 +14,5 @@ ft_write:
 	call __errno_location wrt ..plt ; PIE-supporting
 	mov [rax], rbx ; set errno
 	mov rax, -1
-	jmp .done
 .done:
 	ret
