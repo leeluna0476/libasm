@@ -8,11 +8,12 @@ ft_write:
 	mov rax, 1 ; set the syscall number
 	syscall
 	cmp rax, 0
-	jge .done ; return_value >= 0
-	mov rbx, rax ; rbx is preserved
-	neg rbx
+	jge .done ; rax >= 0
+	push rax ; rax: caller-saved. might be overwritten after func call.
 	call __errno_location wrt ..plt ; PIE-supporting
-	mov [rax], rbx ; set errno
+	pop rcx ; rcx: caller-saved. can be used as a temp storage.
+	neg rcx
+	mov [rax], rcx ; set errno.
 	mov rax, -1
 .done:
 	ret
