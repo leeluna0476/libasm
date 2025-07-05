@@ -12,8 +12,8 @@ SRCS = \
 	   ft_strcpy.s \
 	   ft_write.s \
 
-OBJS_DIR=.objs
-OBJS=$(addprefix $(OBJS_DIR)/, $(SRCS:.s=.o))
+OBJS_DIR = .objs
+OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.s=.o))
 
 all: $(NAME)
 
