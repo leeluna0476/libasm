@@ -12,9 +12,9 @@ ft_strcmp:
 	xor rcx, rcx
 .loop:
 	mov dl, [rdi + rcx]
+	mov dh, [rsi + rcx]
 	cmp dl, 0
 	je .done
-	mov dh, [rsi + rcx]
 	cmp dh, 0
 	je .done
 	cmp dl, dh
