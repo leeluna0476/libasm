@@ -12,9 +12,9 @@ global ft_strlen
 ft_strlen:
 	xor rcx, rcx
 .loop:
-	mov dl, [rdi + rcx] ; mov a single byte
+	mov dl, [rdi + rcx]
 	cmp dl, 0
-	je .done ; if cmp -> 0
+	je .done
 	inc rcx
 	jmp .loop
 .done:

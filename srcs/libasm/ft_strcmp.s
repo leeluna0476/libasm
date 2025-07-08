@@ -11,14 +11,14 @@ global ft_strcmp
 ft_strcmp:
 	xor rcx, rcx
 .loop:
-	mov dl, [rdi + rcx] ; mov a single byte
-	cmp dl, 0 ; if dl == 0
-	je .done ; break
-	mov dh, [rsi + rcx] ; mov a single byte
-	cmp dh, 0 ; if dh == 0
-	je .done ; break
-	cmp dl, dh ; if dl != dh
-	jne .done ; break
+	mov dl, [rdi + rcx]
+	cmp dl, 0
+	je .done
+	mov dh, [rsi + rcx]
+	cmp dh, 0
+	je .done
+	cmp dl, dh
+	jne .done
 	inc rcx
 	jmp .loop
 .done:
