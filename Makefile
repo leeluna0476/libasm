@@ -1,11 +1,34 @@
-.DEFAULT_GOAL=build
+AS = nasm
+ASFLAGS += -w+error=all
+ASFLAGS += -f elf64
 
-build:
-	docker build -t alpine:amd64 --platform linux/amd64 .
+RM = rm -rf
+ARFLAGS = rcs
 
-run:
-	@if docker ps -a | grep -q libasm; then \
-		docker start -i libasm; \
-	else \
-		docker run --platform linux/amd64 --name libasm -v ./srcs:/root/srcs -it alpine:amd64; \
-	fi
+NAME = libasm.a
+SRCS = \
+	   ft_strlen.s \
+	   ft_strcmp.s \
+	   ft_strcpy.s \
+	   ft_write.s \
+	   ft_read.s \
+
+OBJS_DIR = .objs
+OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.s=.o))
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(AR) $(ARFLAGS) $@ $?
+
+$(OBJS_DIR)/%.o: %.s | $(OBJS_DIR)
+	$(AS) $(ASFLAGS) $< -o $@
+
+$(OBJS_DIR):
+	mkdir -p $(OBJS_DIR)
+
+clean:
+	$(RM) $(OBJS_DIR)
+
+fclean:
+	$(RM) $(OBJS_DIR) $(NAME)
