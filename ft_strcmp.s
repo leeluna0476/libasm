@@ -9,6 +9,8 @@
 section .text
 global ft_strcmp
 ft_strcmp:
+	push rbp
+	mov rbp, rsp
 	xor rcx, rcx
 .loop:
 	mov dl, [rdi + rcx]
@@ -24,4 +26,5 @@ ft_strcmp:
 .done:
 	sub dl, dh
 	movsx rax, dl
+	pop rbp
 	ret

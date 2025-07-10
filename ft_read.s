@@ -10,6 +10,8 @@ extern __errno_location ; external function from standard c library
 section .text
 global ft_read
 ft_read:
+	push rbp
+	mov rbp, rsp
 	mov rax, 0
 	syscall
 	cmp rax, 0
@@ -23,4 +25,5 @@ ft_read:
 	mov [rax], rcx
 	mov rax, -1
 .done:
+	pop rbp
 	ret

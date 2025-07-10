@@ -17,6 +17,8 @@ extern ft_strcpy
 section .text
 global ft_strdup
 ft_strdup:
+	push rbp
+	mov rbp, rsp
 	call ft_strlen
 	push rdi
 	inc rax
@@ -30,4 +32,5 @@ ft_strdup:
 	mov rdi, rax
 	call ft_strcpy
 .done:
+	pop rbp
 	ret
