@@ -29,6 +29,10 @@ int main(void)
         return 1;
     }
 
+    if (ft_read(-1, buf, 19) < 0) {
+        perror("ft_read");
+    }
+
     if (ft_read(fd, buf, 19) < 0) {
         perror("ft_read");
         return 1;
@@ -50,6 +54,15 @@ int main(void)
     printf("=====================================================================================\n");
 
     close(fd);
+
+	if (ft_write(-1, str_for_test, ft_strlen(str_for_test)) < 0) {
+		perror("ft_write");
+	}
+
+	if (ft_write(1, str_for_test, ft_strlen(str_for_test)) < 0) {
+		perror("ft_write");
+		return 1;
+	}
 
 	return 0;
 }
