@@ -15,7 +15,9 @@ ft_read:
 	cmp rax, 0
 	jge .done
 	push rax
+	sub rsp, 8
 	call __errno_location wrt ..plt
+	add rsp, 8
 	pop rcx
 	neg rcx
 	mov [rax], rcx
