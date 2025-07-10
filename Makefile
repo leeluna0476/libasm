@@ -31,5 +31,9 @@ $(OBJS_DIR):
 clean:
 	$(RM) $(OBJS_DIR)
 
-fclean:
-	$(RM) $(OBJS_DIR) $(NAME)
+fclean: clean
+	$(RM) $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
