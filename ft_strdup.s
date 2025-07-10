@@ -1,4 +1,4 @@
-; char*	ft_strdup(const char *s1) {
+; char	*ft_strdup(const char *s1) {
 ; 	size_t	s1_len = ft_strlen(s1);
 ; 	char	*copy = malloc(s1_len + 1);
 ; 	if (copy) {
