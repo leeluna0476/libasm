@@ -1,7 +1,7 @@
 # libasm
 My libasm (written in NASM syntax)
 
-## Functions and and relevant structure definitions
+## Functions and and relevant structure declarations
 Check out the `libasm.h` file in the `attachment` directory.
 
 ## How to build and remove
