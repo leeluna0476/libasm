@@ -7,5 +7,5 @@ run:
 	@if docker ps -a | grep -q libasm; then \
 		docker start -i libasm; \
 	else \
-		docker run --platform linux/amd64 --name libasm -v ./srcs:/root/srcs -it alpine:amd64; \
+		docker run --platform linux/amd64 --name libasm -v ../:/root/srcs -it alpine:amd64; \
 	fi
