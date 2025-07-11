@@ -13,6 +13,7 @@ SRCS = \
 	   ft_strdup.s \
 	   ft_write.s \
 	   ft_read.s \
+	   ft_list_push_front.s \
 
 OBJS_DIR = .objs
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.s=.o))
