@@ -14,6 +14,7 @@ SRCS = \
 	   ft_write.s \
 	   ft_read.s \
 	   ft_list_push_front.s \
+	   ft_list_size.s \
 
 OBJS_DIR = .objs
 OBJS = $(addprefix $(OBJS_DIR)/, $(SRCS:.s=.o))
