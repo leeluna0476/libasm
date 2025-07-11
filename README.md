@@ -14,7 +14,7 @@ apk add nasm # alpine
 ```
 Build the library.
 ```bash
-make # builds the relocatable object files under the directory .objs/ and the library archive (libasm.a) in the current directory.
+make # builds the relocatable object files in the directory .objs/ and the library archive (libasm.a) in the current directory.
 make clean # removes .objs/*
 make fclean # removes .objs/* and libasm.a
 ```
