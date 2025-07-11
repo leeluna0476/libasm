@@ -59,10 +59,27 @@ int main(void)
 		perror("ft_write");
 	}
 
+	printf("ft_write: ");
+	fflush(stdout);
 	if (ft_write(1, str_for_test, ft_strlen(str_for_test)) < 0) {
 		perror("ft_write");
 		return 1;
 	}
+	printf("\nft_list_push_front: ");
+
+	t_list	*head = NULL;
+	ft_list_push_front(&head, "seojilee");
+	ft_list_push_front(&head, "am");
+	ft_list_push_front(&head, "i");
+	ft_list_push_front(&head, "world");
+	ft_list_push_front(&head, "hello");
+
+	t_list	*iter = head;
+	while (iter) {
+		printf("%s ", (char *)iter->data);
+		iter = iter->next;
+	}
+	printf("\n");
 
 	return 0;
 }

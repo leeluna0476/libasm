@@ -10,4 +10,12 @@ char*   ft_strdup(const char* s);
 ssize_t ft_read(int filedes, void* buf, size_t nbytes);
 ssize_t ft_write(int filedes, const void* buf, size_t nbytes);
 
+typedef struct s_list
+{
+	void			*data;
+	struct s_list	*next;
+}	t_list;
+
+void	ft_list_push_front(t_list **begin_list, void *data);
+
 #endif
