@@ -1,4 +1,4 @@
-; char* ft_strcpy(char* dst, const char* src) {
+; char	*ft_strcpy(char *dst, const char *src) {
 ; 	size_t i = 0;
 ; 	while (src[i]) {
 ; 		dst[i] = src[i];

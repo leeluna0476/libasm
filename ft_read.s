@@ -1,6 +1,6 @@
 ; syscall number 0: /usr/include/bits/syscall.h
 
-; ssize_t read(int filedes, void* buf, size_t nbytes);
+; ssize_t read(int filedes, void *buf, size_t nbytes);
 ; RETURN VALUES:
 ; 	if successful, the number of bytes actually read is returned.
 ; 	else, -1 is returned. (and errno is set.)
