@@ -81,5 +81,7 @@ int main(void)
 	}
 	printf("\n");
 
+	printf("%d\n", ft_list_size(head));
+
 	return 0;
 }
