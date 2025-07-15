@@ -8,11 +8,12 @@
 ; 	return dst;
 ; }
 
+%include "libasm.inc"
+
 section .text
 global ft_strcpy
 ft_strcpy:
-	push rbp
-	mov rbp, rsp
+	procedure_start
 	xor rcx, rcx
 .loop:
 	mov dl, [rsi + rcx]
@@ -24,5 +25,5 @@ ft_strcpy:
 .done:
 	mov BYTE [rdi + rcx], 0
 	mov rax, rdi
-	pop rbp
+	procedure_end
 	ret

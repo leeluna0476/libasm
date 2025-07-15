@@ -10,6 +10,8 @@
 ; The strdup() function allocates sufficient memory for a copy of the string s1, does the copy, and returns a pointer to it.
 ; If insufficient memory is available, NULL is returned and errno is set to ENOMEM. (malloc sets errno)
 
+%include "libasm.inc"
+
 extern ft_strlen
 extern malloc
 extern ft_strcpy
@@ -17,8 +19,7 @@ extern ft_strcpy
 section .text
 global ft_strdup
 ft_strdup:
-	push rbp
-	mov rbp, rsp
+	procedure_start
 	call ft_strlen
 	push rdi
 	inc rax
@@ -32,5 +33,5 @@ ft_strdup:
 	mov rdi, rax
 	call ft_strcpy
 .done:
-	pop rbp
+	procedure_end
 	ret

@@ -6,11 +6,12 @@
 ; 	return s1[i] - s2[i];
 ; }
 
+%include "libasm.inc"
+
 section .text
 global ft_strcmp
 ft_strcmp:
-	push rbp
-	mov rbp, rsp
+	procedure_start
 	xor rcx, rcx
 .loop:
 	mov dl, [rdi + rcx]
@@ -26,5 +27,5 @@ ft_strcmp:
 .done:
 	sub dl, dh
 	movsx rax, dl
-	pop rbp
+	procedure_end
 	ret

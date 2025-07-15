@@ -14,11 +14,12 @@
 ; 	return size;
 ; }
 
+%include "libasm.inc"
+
 section .text
 global ft_list_size
 ft_list_size:
-	push rbp
-	mov rbp, rsp
+	procedure_start
 	xor ecx, ecx
 .loop:
 	cmp QWORD rdi, 0
@@ -28,5 +29,5 @@ ft_list_size:
 	jmp .loop
 .done:
 	mov eax, ecx
-	pop rbp
+	procedure_end
 	ret

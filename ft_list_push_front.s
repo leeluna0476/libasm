@@ -17,13 +17,14 @@
 ; 	}
 ; }
 
+%include "libasm.inc"
+
 extern malloc
 
 section .text
 global ft_list_push_front
 ft_list_push_front:
-	push rbp
-	mov rbp, rsp
+	procedure_start
 	mov rdx, 0
 	cmp QWORD [rdi], 0
 	je .create
@@ -46,5 +47,5 @@ ft_list_push_front:
 	mov [rax], rsi
 	mov [rax + 8], rdx
 .done:
-	pop rbp
+	procedure_end
 	ret

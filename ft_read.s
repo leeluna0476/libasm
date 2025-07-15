@@ -5,13 +5,14 @@
 ; 	if successful, the number of bytes actually read is returned.
 ; 	else, -1 is returned. (and errno is set.)
 
+%include "libasm.inc"
+
 extern __errno_location ; external function from standard c library
 
 section .text
 global ft_read
 ft_read:
-	push rbp
-	mov rbp, rsp
+	procedure_start
 	mov rax, 0
 	syscall
 	cmp rax, 0
@@ -25,5 +26,5 @@ ft_read:
 	mov [rax], rcx
 	mov rax, -1
 .done:
-	pop rbp
+	procedure_end
 	ret
