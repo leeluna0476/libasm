@@ -7,11 +7,12 @@
 ;	return cnt;
 ;}
 
+%include "libasm.inc"
+
 section .text
 global ft_strlen
 ft_strlen:
-    push rbp
-    mov rbp, rsp
+	procedure_start
 	xor rcx, rcx
 .loop:
 	mov dl, [rdi + rcx]
@@ -21,5 +22,5 @@ ft_strlen:
 	jmp .loop
 .done:
 	mov rax, rcx
-	pop rbp
+	procedure_end
 	ret
