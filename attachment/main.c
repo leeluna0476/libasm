@@ -4,6 +4,13 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+int	cmp(void *a, void *b) {
+	return ft_strcmp(a, b);
+}
+
+void	free_fct(void *data) {
+}
+
 int main(void)
 {
     char    buf[1024];
@@ -69,6 +76,7 @@ int main(void)
 
 	t_list	*head = NULL;
 	ft_list_push_front(&head, "seojilee");
+	ft_list_push_front(&head, "world");
 	ft_list_push_front(&head, "am");
 	ft_list_push_front(&head, "i");
 	ft_list_push_front(&head, "world");
@@ -82,6 +90,14 @@ int main(void)
 	printf("\n");
 
 	printf("%d\n", ft_list_size(head));
+
+	ft_list_remove_if(&head, "world", cmp, free_fct);
+	iter = head;
+	while (iter) {
+		printf("%s ", (char *)iter->data);
+		iter = iter->next;
+	}
+	printf("\n");
 
 	return 0;
 }
