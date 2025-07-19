@@ -4,6 +4,10 @@
 #include <fcntl.h>
 #include <unistd.h>
 
+void	foo(size_t a) {
+	printf("0x%zx\n", a);
+}
+
 int	cmp(void *a, void *b) {
 	return ft_strcmp(a, b);
 }
@@ -75,16 +79,18 @@ int main(void)
 	printf("\nft_list_push_front: ");
 
 	t_list	*head = NULL;
+	ft_list_push_front(&head, "world");
 	ft_list_push_front(&head, "seojilee");
 	ft_list_push_front(&head, "world");
 	ft_list_push_front(&head, "am");
 	ft_list_push_front(&head, "i");
 	ft_list_push_front(&head, "world");
 	ft_list_push_front(&head, "hello");
+	ft_list_push_front(&head, "world");
 
 	t_list	*iter = head;
 	while (iter) {
-		printf("%s ", (char *)iter->data);
+		printf("%p %s ", &(iter->next), (char *)iter->data);
 		iter = iter->next;
 	}
 	printf("\n");
