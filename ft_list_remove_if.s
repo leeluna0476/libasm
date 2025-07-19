@@ -14,7 +14,6 @@
 %include "libasm.inc"
 
 extern free
-extern foo
 
 section .text
 global ft_list_remove_if
@@ -53,8 +52,6 @@ ft_list_remove_if:
 .skip_node:
 	add rcx, 8
 	mov [rbp - 40], rcx ; update next_position
-	mov rdi, rcx
-	call foo
 	jmp .loop
 .done:
 	mov rsp, rbp
