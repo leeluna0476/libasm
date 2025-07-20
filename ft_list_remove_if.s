@@ -19,23 +19,20 @@ section .text
 global ft_list_remove_if
 ft_list_remove_if:
 	procedure_start
-	sub rsp, 40
+	sub rsp, 32
 	mov [rbp - 8], rdi
 	mov [rbp - 16], rsi
 	mov [rbp - 24], rdx
 	mov [rbp - 32], rcx
-	mov [rbp - 40], rdi
 .loop:
-	mov rdx, [rbp - 40]
+	mov rdx, [rbp - 8]
 	mov rdx, [rdx]
 	cmp rdx, 0
 	je .done
 	mov rdi, [rdx]
 	mov rsi, [rbp - 16]
-	sub rsp, 8
 	call [rbp - 24] ; call cmp
-	add rsp, 8
-	mov rdx, [rbp - 40] ; next_position
+	mov rdx, [rbp - 8] ; next_position
 	mov rcx, [rdx] ; bg
 	cmp rax, 0
 	jne .skip_node
@@ -51,7 +48,7 @@ ft_list_remove_if:
 	jmp .loop
 .skip_node:
 	add rcx, 8
-	mov [rbp - 40], rcx ; update next_position
+	mov [rbp - 8], rcx ; update next_position
 	jmp .loop
 .done:
 	mov rsp, rbp
@@ -59,7 +56,6 @@ ft_list_remove_if:
 	ret
 
 ; STACK FRAME
-; |next_position |rbp - 40|
 ; |free_fct      |rbp - 32|
 ; |cmp           |rbp - 24|
 ; |data_ref      |rbp - 16|
