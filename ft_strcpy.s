@@ -13,7 +13,6 @@
 section .text
 global ft_strcpy
 ft_strcpy:
-	procedure_start
 	xor rcx, rcx
 .loop:
 	mov dl, [rsi + rcx]
@@ -25,5 +24,4 @@ ft_strcpy:
 .done:
 	mov BYTE [rdi + rcx], 0
 	mov rax, rdi
-	procedure_end
 	ret

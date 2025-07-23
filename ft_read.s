@@ -12,19 +12,15 @@ extern __errno_location ; external function from standard c library
 section .text
 global ft_read
 ft_read:
-	procedure_start
 	mov rax, 0
 	syscall
 	cmp rax, 0
 	jge .done
 	push rax
-	sub rsp, 8
 	call __errno_location wrt ..plt
-	add rsp, 8
 	pop rcx
 	neg rcx
 	mov [rax], rcx
 	mov rax, -1
 .done:
-	procedure_end
 	ret

@@ -24,7 +24,6 @@ extern malloc
 section .text
 global ft_list_push_front
 ft_list_push_front:
-	procedure_start
 	mov rdx, 0
 	cmp QWORD [rdi], 0
 	je .create
@@ -34,10 +33,8 @@ ft_list_push_front:
 	push rdx
 	push rdi
 	push rsi
-	sub rsp, 8
 	mov rdi, 16
 	call malloc wrt ..plt
-	add rsp, 8
 	pop rsi
 	pop rdi
 	pop rdx
@@ -47,5 +44,4 @@ ft_list_push_front:
 	mov [rax], rsi
 	mov [rax + 8], rdx
 .done:
-	procedure_end
 	ret

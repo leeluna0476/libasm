@@ -19,19 +19,17 @@ extern ft_strcpy
 section .text
 global ft_strdup
 ft_strdup:
-	procedure_start
+	sub rsp, 8
 	call ft_strlen
 	push rdi
 	inc rax
 	mov rdi, rax
-	sub rsp, 8
 	call malloc wrt ..plt
-	add rsp, 8
 	pop rsi
 	cmp rax, 0
 	je .done
 	mov rdi, rax
 	call ft_strcpy
 .done:
-	procedure_end
+	add rsp, 8
 	ret
