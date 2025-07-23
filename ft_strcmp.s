@@ -25,5 +25,5 @@ ft_strcmp:
 	jmp .loop
 .done:
 	sub dl, dh
-	movsx rax, dl
+	movsx eax, dl
 	ret
