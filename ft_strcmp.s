@@ -11,7 +11,6 @@
 section .text
 global ft_strcmp
 ft_strcmp:
-	procedure_start
 	xor rcx, rcx
 .loop:
 	mov dl, [rdi + rcx]
@@ -27,5 +26,4 @@ ft_strcmp:
 .done:
 	sub dl, dh
 	movsx rax, dl
-	procedure_end
 	ret
